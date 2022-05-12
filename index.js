@@ -28,9 +28,9 @@ class BaseController {
     this.router = Router();
   }
 
-  use(app) {
-    if (this.attachRoutes) this.attachRoutes();
-    app.use(this.router);
+  async use(app) {
+    if (this.attachRoutes) await this.attachRoutes();
+    return app.use(this.router);
   }
 }
 
